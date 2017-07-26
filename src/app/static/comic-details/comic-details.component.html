@@ -1,7 +1,11 @@
-<a routerLink="..">&lt; Back to comics</a>
+<!--<a routerLink="..">&lt; Back to comics</a>-->
+
+<a routerLink=".."><button md-raised-button color="accent"> Back to Comics</button></a>
+
+<body style='margin-top:0;margin-left:110px;margin-right:110px;'>
 
 <div *ngIf="comic">
-  <h2>{{comic.title}}</h2>
+  <h1 class="text-center">{{comic.title}}</h1>
 
   <div class="md-thumbnail-container">
     <mh-thumbnail
@@ -13,14 +17,14 @@
   </div>
 
   <div *ngIf="comic.description">
-    <h3>Description</h3>
+    <h2>Description</h2>
     <p>{{comic.description}}</p>
   </div>
 
   <mh-links-list [links]="comic.urls"></mh-links-list>
 
-  <h3>Details</h3>
-  <dl>
+  <h2>Details</h2>
+  <dl style="margin-left: 25px">
     <ng-container *ngIf="comic.issueNumber">
       <dt>Issue number</dt><dd>{{comic.issueNumber}}</dd>
     </ng-container>
@@ -66,3 +70,5 @@
     [collection]="comic.events"
   ></mh-associated-items>
 </div>
+
+</body>

@@ -1,7 +1,16 @@
+/*.md-thumbnail-container {*/
+  /*display: block;*/
+  /*flex-wrap: wrap;*/
+  /*padding: 0 -5px;*/
+  /*width: 40%;*/
+/*}*/
+
 .md-thumbnail-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 -5px;
+  /*width: 100%;*/
+  /*max-width: 300px;*/
+  display: block;
+  margin: auto;
+  width: 40%;
 }
 
 .md-thumbnail-item {

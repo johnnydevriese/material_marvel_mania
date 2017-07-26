@@ -1,6 +1,6 @@
 <div *ngIf="prices?.length">
-  <h3>Prices</h3>
-  <dl>
+  <h2>Prices</h2>
+  <dl style="margin-left: 25px">
     <ng-container *ngFor="let priceItem of prices">
       <dt>{{getPriceLabelByType(priceItem.type)}}</dt><dd>${{priceItem.price | number:'1.2-3'}}</dd>
     </ng-container>

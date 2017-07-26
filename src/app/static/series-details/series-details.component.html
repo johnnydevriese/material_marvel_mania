@@ -1,7 +1,9 @@
-<a routerLink="..">&lt; Back to series</a>
+<a routerLink=".."><button md-raised-button color="accent"> Back to Series</button></a>
+
+<body style='margin-top:0;margin-left:110px;margin-right:110px;'>
 
 <div *ngIf="series">
-  <h2>{{series.title}}</h2>
+  <h1 class="text-center">{{series.title}}</h1>
 
   <div class="md-thumbnail-container">
     <mh-thumbnail
@@ -19,8 +21,8 @@
   <mh-links-list [links]="series.urls"></mh-links-list>
 
   <ng-container *ngIf="series.rating || series.type">
-    <h3>Details</h3>
-    <dl>
+    <h2>Details</h2>
+    <dl style="margin-left: 25px">
       <ng-container *ngIf="series.rating">
         <dt>Rating</dt><dd>{{series.rating}}</dd>
       </ng-container>
@@ -32,15 +34,15 @@
   </ng-container>
 
   <ng-container *ngIf="series.start || series.end">
-    <h3>Dates</h3>
-    <dl>
+    <h2>Dates</h2>
+    <dl style="margin-left: 25px">
       <dt>Start Year</dt><dd>{{series.startYear}}</dd>
       <dt>End Year</dt><dd>{{series.endYear}}</dd>
     </dl>
   </ng-container>
 
   <ng-container *ngIf="series.previous || series.next">
-    <h3>Related seriess</h3>
+    <h2>Related series</h2>
     <dl>
       <ng-container *ngIf="series.previous">
         <dt>Previous Series</dt>
@@ -88,3 +90,5 @@
     [collection]="series.series"
   ></mh-associated-items>
 </div>
+
+</body>

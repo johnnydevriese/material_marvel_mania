@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'mh-comic-variants',
@@ -8,9 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ComicVariantsComponent implements OnInit {
   @Input() variants: [any];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
   }
 
   getComicVariantPath(variant) {
@@ -21,3 +28,4 @@ export class ComicVariantsComponent implements OnInit {
     return resourceURI.match(/\d+$/)[0];
   }
 }
+
