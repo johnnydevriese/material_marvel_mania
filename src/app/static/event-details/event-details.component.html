@@ -1,0 +1,77 @@
+<a routerLink="..">&lt; Back to events</a>
+
+<div *ngIf="event">
+  <h2>{{event.title}}</h2>
+
+  <div class="md-thumbnail-container">
+    <mh-thumbnail
+      [image]="event.thumbnail"
+      alt="Thumbnail of {{event.title}}"
+      class="md-thumbnail-item"
+    ></mh-thumbnail>
+  </div>
+
+  <div *ngIf="event.description">
+    <h3>Description</h3>
+    <p>{{event.description}}</p>
+  </div>
+
+  <mh-links-list [links]="event.urls"></mh-links-list>
+
+  <ng-container *ngIf="event.start || event.end">
+    <h3>Dates</h3>
+    <dl>
+      <dt>Start</dt><dd>{{event.start | date:'mediumDate'}}</dd>
+      <dt>End</dt><dd>{{event.end | date:'mediumDate'}}</dd>
+    </dl>
+  </ng-container>
+
+  <ng-container *ngIf="event.previous || event.next">
+    <h3>Related events</h3>
+    <dl>
+      <ng-container *ngIf="event.previous">
+        <dt>Previous Event</dt>
+        <dd>
+          <mh-item-name
+            basePath="/events"
+            [item]="event.previous"
+          ></mh-item-name>
+        </dd>
+      </ng-container>
+
+      <ng-container *ngIf="event.next">
+        <dt>Next Event</dt>
+        <dd>
+          <mh-item-name
+            basePath="/events"
+            [item]="event.next"
+          ></mh-item-name>
+        </dd>
+      </ng-container>
+    </dl>
+  </ng-container>
+
+  <mh-associated-items
+    title="Creators"
+    basePath="/creators"
+    [collection]="event.creators"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Characters"
+    basePath="/characters"
+    [collection]="event.characters"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Comics"
+    basePath="/comics"
+    [collection]="event.comics"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Series"
+    basePath="/series"
+    [collection]="event.series"
+  ></mh-associated-items>
+</div>

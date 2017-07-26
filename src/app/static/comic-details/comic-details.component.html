@@ -1,0 +1,68 @@
+<a routerLink="..">&lt; Back to comics</a>
+
+<div *ngIf="comic">
+  <h2>{{comic.title}}</h2>
+
+  <div class="md-thumbnail-container">
+    <mh-thumbnail
+      *ngFor="let image of comic.images"
+      [image]="image"
+      alt="Thumbnail of {{comic.title}}"
+      class="md-thumbnail-item"
+    ></mh-thumbnail>
+  </div>
+
+  <div *ngIf="comic.description">
+    <h3>Description</h3>
+    <p>{{comic.description}}</p>
+  </div>
+
+  <mh-links-list [links]="comic.urls"></mh-links-list>
+
+  <h3>Details</h3>
+  <dl>
+    <ng-container *ngIf="comic.issueNumber">
+      <dt>Issue number</dt><dd>{{comic.issueNumber}}</dd>
+    </ng-container>
+
+    <ng-container *ngIf="comic.upc">
+      <dt>UPC</dt><dd>{{comic.upc}}</dd>
+    </ng-container>
+
+    <ng-container *ngIf="comic.diamondCode">
+      <dt>Diamond code</dt><dd>{{comic.diamondCode}}</dd>
+    </ng-container>
+
+    <ng-container *ngIf="comic.pageCount">
+      <dt>Page count</dt><dd>{{comic.pageCount}}</dd>
+    </ng-container>
+
+    <ng-container *ngIf="comic.series?.name">
+      <dt>Series</dt><dd>{{comic.series.name}}</dd>
+    </ng-container>
+
+    <ng-container *ngIf="comic.format">
+      <dt>Format</dt><dd>{{comic.format}}</dd>
+    </ng-container>
+  </dl>
+
+  <mh-comic-dates [dates]="comic.dates"></mh-comic-dates>
+
+  <mh-comic-prices [prices]="comic.prices"></mh-comic-prices>
+
+  <mh-comic-creators [creators]="comic.creators"></mh-comic-creators>
+
+  <mh-comic-variants [variants]="comic.variants"></mh-comic-variants>
+
+  <mh-associated-items
+    title="Characters"
+    basePath="/characters"
+    [collection]="comic.characters"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Events"
+    basePath="/events"
+    [collection]="comic.events"
+  ></mh-associated-items>
+</div>

@@ -1,0 +1,17 @@
+.mh-navigation {
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  font-size: 16px;
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+.mh-navigation-item {
+  padding: 0 10px;
+}
+
+.mh-navigation-item + .mh-navigation-item {
+  border-left: 1px solid black;
+}

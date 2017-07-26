@@ -1,0 +1,12 @@
+<div *ngIf="collection?.available">
+  <h3>{{title}} ({{collection.available}})</h3>
+  <ul>
+    <li *ngFor="let item of collection.items">
+      <mh-item-name
+        [basePath]="basePath"
+        [item]="item"
+      ></mh-item-name>
+    </li>
+    <li *ngIf="collection.returned < collection.available">...</li>
+  </ul>
+</div>

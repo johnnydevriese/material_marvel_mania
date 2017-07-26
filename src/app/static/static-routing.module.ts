@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
 import { FeaturesComponent } from './features/features.component';
+import { CharactersListComponent } from './characters-list/characters-list.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
-  { path: 'features', component: FeaturesComponent }
+  { path: 'features', component: FeaturesComponent },
+  { path: 'characters', component: CharactersListComponent}
 ];
 
 @NgModule({
