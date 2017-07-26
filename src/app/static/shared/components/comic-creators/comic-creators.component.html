@@ -1,0 +1,13 @@
+<div *ngIf="creators?.available">
+  <h3>Creators ({{creators.available}})</h3>
+  <ul>
+    <li *ngFor="let creator of creators.items">
+      <mh-item-name
+        basePath="/creators"
+        [item]="creator"
+      ></mh-item-name>
+      [{{creator.role}}]
+    </li>
+    <li *ngIf="creators.returned < creators.available">...</li>
+  </ul>
+</div>

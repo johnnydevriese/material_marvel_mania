@@ -1,0 +1,6 @@
+<div *ngIf="links?.length">
+  <h3>Links</h3>
+  <ul>
+    <li *ngFor="let link of links"><a [href]="link.url">{{getLinkLabelByType(link.type)}}</a></li>
+  </ul>
+</div>

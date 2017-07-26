@@ -1,0 +1,71 @@
+<a routerLink="..">&lt; Back to creators</a>
+
+<div *ngIf="creator">
+  <h2>{{creator.fullName}}</h2>
+
+  <div class="md-thumbnail-container">
+    <mh-thumbnail
+      [image]="creator.thumbnail"
+      alt="Thumbnail of {{creator.fullName}}"
+      class="md-thumbnail-item"
+    ></mh-thumbnail>
+  </div>
+
+  <div *ngIf="creator.description">
+    <h3>Description</h3>
+    <p>{{creator.description}}</p>
+  </div>
+
+  <mh-links-list [links]="creator.urls"></mh-links-list>
+
+  <ng-container *ngIf="creator.start || creator.end">
+    <h3>Dates</h3>
+    <dl>
+      <dt>Start</dt><dd>{{creator.start | date:'mediumDate'}}</dd>
+      <dt>End</dt><dd>{{creator.end | date:'mediumDate'}}</dd>
+    </dl>
+  </ng-container>
+
+  <ng-container *ngIf="creator.previous || creator.next">
+    <h3>Related creators</h3>
+    <dl>
+      <ng-container *ngIf="creator.previous">
+        <dt>Previous Event</dt>
+        <dd>
+          <mh-item-name
+            basePath="/creators"
+            [item]="creator.previous"
+          ></mh-item-name>
+        </dd>
+      </ng-container>
+
+      <ng-container *ngIf="creator.next">
+        <dt>Next Event</dt>
+        <dd>
+          <mh-item-name
+            basePath="/creators"
+            [item]="creator.next"
+          ></mh-item-name>
+        </dd>
+      </ng-container>
+    </dl>
+  </ng-container>
+
+  <mh-associated-items
+    title="Comics"
+    basePath="/comics"
+    [collection]="creator.comics"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Series"
+    basePath="/series"
+    [collection]="creator.series"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Events"
+    basePath="/events"
+    [collection]="creator.events"
+  ></mh-associated-items>
+</div>

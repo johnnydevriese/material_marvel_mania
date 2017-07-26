@@ -1,0 +1,11 @@
+.md-thumbnail-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 -5px;
+}
+
+.md-thumbnail-item {
+  width: 100%;
+  max-width: 200px;
+  margin: 5px;
+}

@@ -1,0 +1,90 @@
+<a routerLink="..">&lt; Back to series</a>
+
+<div *ngIf="series">
+  <h2>{{series.title}}</h2>
+
+  <div class="md-thumbnail-container">
+    <mh-thumbnail
+      [image]="series.thumbnail"
+      alt="Thumbnail of {{series.title}}"
+      class="md-thumbnail-item"
+    ></mh-thumbnail>
+  </div>
+
+  <div *ngIf="series.description">
+    <h3>Description</h3>
+    <p>{{series.description}}</p>
+  </div>
+
+  <mh-links-list [links]="series.urls"></mh-links-list>
+
+  <ng-container *ngIf="series.rating || series.type">
+    <h3>Details</h3>
+    <dl>
+      <ng-container *ngIf="series.rating">
+        <dt>Rating</dt><dd>{{series.rating}}</dd>
+      </ng-container>
+
+      <ng-container *ngIf="series.type">
+        <dt>Type</dt><dd>{{series.type}}</dd>
+      </ng-container>
+    </dl>
+  </ng-container>
+
+  <ng-container *ngIf="series.start || series.end">
+    <h3>Dates</h3>
+    <dl>
+      <dt>Start Year</dt><dd>{{series.startYear}}</dd>
+      <dt>End Year</dt><dd>{{series.endYear}}</dd>
+    </dl>
+  </ng-container>
+
+  <ng-container *ngIf="series.previous || series.next">
+    <h3>Related seriess</h3>
+    <dl>
+      <ng-container *ngIf="series.previous">
+        <dt>Previous Series</dt>
+        <dd>
+          <mh-item-name
+            basePath="/seriess"
+            [item]="series.previous"
+          ></mh-item-name>
+        </dd>
+      </ng-container>
+
+      <ng-container *ngIf="series.next">
+        <dt>Next Series</dt>
+        <dd>
+          <mh-item-name
+            basePath="/seriess"
+            [item]="series.next"
+          ></mh-item-name>
+        </dd>
+      </ng-container>
+    </dl>
+  </ng-container>
+
+  <mh-associated-items
+    title="Creators"
+    basePath="/creators"
+    [collection]="series.creators"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Characters"
+    basePath="/characters"
+    [collection]="series.characters"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Comics"
+    basePath="/comics"
+    [collection]="series.comics"
+  ></mh-associated-items>
+
+  <mh-associated-items
+    title="Series"
+    basePath="/series"
+    [collection]="series.series"
+  ></mh-associated-items>
+</div>

@@ -42,6 +42,7 @@
     "intl": "^1.2.5",
     "node-uuid": "^1.4.8",
     "rxjs": "^5.4.2",
+    "ultimate-pagination": "^1.0.0",
     "web-animations-js": "^2.2.5",
     "zone.js": "0.8.12"
   },

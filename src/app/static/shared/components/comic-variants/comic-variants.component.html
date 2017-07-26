@@ -1,0 +1,6 @@
+<div *ngIf="variants?.length">
+  <h3>Variants</h3>
+  <ul>
+    <li *ngFor="let variant of variants"><a [routerLink]="getComicVariantPath(variant)">{{variant.name}}</a></li>
+  </ul>
+</div>

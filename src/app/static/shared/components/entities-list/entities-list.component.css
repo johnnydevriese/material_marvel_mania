@@ -1,0 +1,18 @@
+.mh-subtitle {
+  text-align: center;
+}
+
+.mh-search-container {
+  padding: 10px;
+  text-align: center;
+}
+
+.mh-cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.mh-cards-list__item {
+  flex: 0 0 200px;
+}
