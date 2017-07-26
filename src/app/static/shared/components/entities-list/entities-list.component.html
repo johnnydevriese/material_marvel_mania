@@ -1,5 +1,6 @@
 <h2 class="mh-subtitle">{{title}}</h2>
 
+<!-- This is the search bar -->
 <div class="mh-search-container">
     <form (submit)="onSearch(searchInput.value)">
         <input type="text" #searchInput [value]="query">
@@ -19,6 +20,7 @@
     ></mh-entities-list-item>
 </div>
 
+<!-- This handles the pages and pagination. -->
 <mh-pagination
     *ngIf="getTotalPages()"
     [currentPage]="page"

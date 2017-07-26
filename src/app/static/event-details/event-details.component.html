@@ -1,7 +1,10 @@
-<a routerLink="..">&lt; Back to events</a>
+<!--<a routerLink="..">&lt; Back to events</a>-->
+<a routerLink=".."><button md-raised-button color="accent"> Back to Events</button></a>
+
+<body style='margin-top:0;margin-left:110px;margin-right:110px;'>
 
 <div *ngIf="event">
-  <h2>{{event.title}}</h2>
+  <h1 class="text-center">{{event.title}}</h1>
 
   <div class="md-thumbnail-container">
     <mh-thumbnail
@@ -19,16 +22,16 @@
   <mh-links-list [links]="event.urls"></mh-links-list>
 
   <ng-container *ngIf="event.start || event.end">
-    <h3>Dates</h3>
-    <dl>
+    <h2>Dates</h2>
+    <dl style="margin-left: 25px">
       <dt>Start</dt><dd>{{event.start | date:'mediumDate'}}</dd>
       <dt>End</dt><dd>{{event.end | date:'mediumDate'}}</dd>
     </dl>
   </ng-container>
 
   <ng-container *ngIf="event.previous || event.next">
-    <h3>Related events</h3>
-    <dl>
+    <h2>Related events</h2>
+    <dl style="margin-left: 25px">
       <ng-container *ngIf="event.previous">
         <dt>Previous Event</dt>
         <dd>
