@@ -24,6 +24,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ModuleWithProviders } from '@angular/core';
 // import { Routes, RouterModule } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { CharactersListComponent } from './characters-list/characters-list.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { ComicsListComponent } from './comics-list/comics-list.component';
@@ -46,7 +47,9 @@ const routes: Routes = [
   { path: 'events', component: EventsListComponent },
   { path: 'events/:id', component: EventDetailsComponent },
   { path: 'series', component: SeriesListComponent },
-  { path: 'series/:id', component: SeriesDetailsComponent }
+  { path: 'series/:id', component: SeriesDetailsComponent },
+  { path: 'about', component: AboutComponent}
+
 ];
 
 export const appRoutingProviders: any[] = [
