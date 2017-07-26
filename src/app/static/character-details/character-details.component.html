@@ -1,7 +1,12 @@
-<a routerLink="..">&lt; Back to characters</a>
+<!--<a routerLink="..">&lt; Back to characters</a>-->
+<!--<button md-raised-button md-primary >foo</button>-->
 
-<div *ngIf="character">
-  <h2>{{character.name}}</h2>
+<a routerLink=".."><button md-raised-button color="accent"> Back to Characters</button></a>
+
+<body style='margin-top:0;margin-left:110px;margin-right:110px;'>
+
+<div *ngIf="character" >
+  <h1 class="center">{{character.name}}</h1>
 
   <div class="md-thumbnail-container">
     <mh-thumbnail
@@ -11,7 +16,7 @@
   </div>
 
   <div *ngIf="character.description">
-    <h3>Description</h3>
+    <h2>Description</h2>
     <p>{{character.description}}</p>
   </div>
 
@@ -35,3 +40,5 @@
     [collection]="character.events"
   ></mh-associated-items>
 </div>
+
+</body>

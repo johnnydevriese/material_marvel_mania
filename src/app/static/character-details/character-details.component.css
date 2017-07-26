@@ -1,4 +1,14 @@
 .md-thumbnail-container {
-  width: 100%;
-  max-width: 300px;
+  /*width: 100%;*/
+  /*max-width: 300px;*/
+  display: block;
+  margin: auto;
+  width: 40%;
 }
+
+.center {
+  text-align: center;
+}
+
+
+
